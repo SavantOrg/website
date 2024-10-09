@@ -1,0 +1,112 @@
+---
+const socialLinks = [
+  { name: 'YouTube', icon: 'youtube', url: '#' },
+  { name: 'GitHub', icon: 'github', url: '#' },
+  { name: 'LinkedIn', icon: 'linkedin', url: '#' },
+  { name: 'Twitter', icon: 'twitter', url: '#' },
+  { name: 'TikTok', icon: 'tiktok', url: '#' },
+];
+
+const footerLists = [
+//   { title: 'Developers', items: ['API', 'Documentation', 'SDKs', 'Integrations', 'Pricing'] },
+  { title: 'Learners', items: ['Courses', 'Tutorials', 'Workshops', 'Certifications', 'Community'] },
+//   { title: 'Creators', items: ['Tools', 'Resources', 'Monetization', 'Analytics', 'Support'] },
+//   { title: 'Organizations', items: ['Enterprise', 'Teams', 'Education', 'Nonprofits', 'Government'] },
+  { title: 'Company', items: ['About', 'Blog', 'Contact'] },
+];
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="social-links">
+      {socialLinks.map(link => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+          <i class={`fab fa-${link.icon}`}></i>
+        </a>
+      ))}
+    </div>
+    <div class="footer-lists-wrapper">
+      <div class="footer-lists">
+        {footerLists.map(list => (
+          <div class="footer-list">
+            <h3>{list.title}</h3>
+            <ul>
+              {list.items.map(item => (
+                <li><a href="#">{item}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: rgba(8, 6, 30, 0.9);
+    padding: 2rem 0;
+    margin-top: 2rem;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .social-links a {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover {
+    color: var(--accent);
+  }
+  .footer-lists-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-lists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+  .footer-list {
+    min-width: 150px;
+  }
+  .footer-list h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  .footer-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-list li {
+    margin-bottom: 0.25rem;
+  }
+  .footer-list a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  .footer-list a:hover {
+    color: var(--accent);
+  }
+  @media (max-width: 768px) {
+    .footer-lists-wrapper {
+      justify-content: flex-start;
+    }
+    .footer-lists {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
